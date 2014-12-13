@@ -541,8 +541,8 @@ abstract class rcube_addressbook
             $plugin = rcube::get_instance()->plugins->exec_hook('contact_listname', array('contact' => $contact));
             $fn     = $plugin['fn'];
         }
-
-        $fn = trim($fn, ', ');
+        if(!empty($fn))
+         $fn = trim($fn, ', ');
 
         // fallback to display name
         if (empty($fn) && $contact['name'])

@@ -314,7 +314,7 @@ function format_email_recipient($email, $name = '')
 {
     $email = trim($email);
 
-    if ($name && $name != $email) {
+    if ($name && $name != $email && !empty($name)) {
         // Special chars as defined by RFC 822 need to in quoted string (or escaped).
         if (preg_match('/[\(\)\<\>\\\.\[\]@,;:"]/', $name)) {
             $name = '"'.addcslashes($name, '"').'"';
